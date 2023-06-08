@@ -3,6 +3,8 @@ import { signInWithGoogle, logOut } from "../service/firebase";
 import { AuthContext } from "../provider/AuthProvider";
 import dig from "object-dig";
 import _ from "lodash";
+import { AppBar, Toolbar, Typography, Button } from '@mui/material';
+
 
 const Header = () => {
   const currentUser = useContext(AuthContext);
@@ -20,10 +22,14 @@ const Header = () => {
   };
 
   return (
-    <header>
-      ヘッダー
-      {buttonRender()}
-    </header>
+    <AppBar position='static'>
+      <Toolbar>
+        <Typography variant='h6'>
+          <b>富下家の父と娘のこうかん日記ぜよ</b>
+        </Typography>
+        {buttonRender()}
+      </Toolbar>
+    </AppBar>
   );
 };
 

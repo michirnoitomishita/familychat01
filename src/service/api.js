@@ -1,4 +1,4 @@
-import { db } from "../service/firebase";
+import { db } from '../service/firebase';
 import {
   collection,
   addDoc,
@@ -8,13 +8,13 @@ import {
   where,
   deleteDoc,
   doc,
-} from "firebase/firestore";
+} from 'firebase/firestore';
 
 export const initGet = async (uid) => {
   const q = query(
-    collection(db, "todo"),
-    where("uid", "==", uid),
-    orderBy("createdAt", "desc")
+    collection(db, 'todo'),
+    where('uid', '==', uid),
+    orderBy('createdAt', 'desc')
   );
 
   const snapShot = await getDocs(q);
@@ -31,23 +31,25 @@ export const initGet = async (uid) => {
 
 export const addTodo = async (content, uid) => {
   try {
-    await addDoc(collection(db, "todo"), {
+    await addDoc(collection(db, 'todo'), {
       content: content,
       uid: uid,
       isComplete: false,
       createdAt: new Date(),
     });
-    console.log("Document successfully added!");
+    console.log('Document successfully added!');
   } catch (error) {
-    console.error("Error adding document: ", error);
+    console.error('Error adding document: ', error);
   }
 };
 
 export const todoDelete = async (id) => {
   try {
-    await deleteDoc(doc(db, "todo", id));
-    console.log("Document successfully deleted!");
+    await deleteDoc(doc(db, 'todo', id));
+    console.log('Document successfully deleted!');
   } catch (error) {
-    console.error("Error deleting document: ", error);
+    console.error('Error deleting document: ', error);
   }
 };
+
+
