@@ -7,7 +7,7 @@
 
 
 #【機能】
-#CHAT機能をFirestore Databaseを実装
+#REACTでのCHAT機能をFirestore Databaseを実装
 
 #各々のアカウントとの交流をできることをgoogleAuthenticationを連動させ毎回ログインできるように実装
 
